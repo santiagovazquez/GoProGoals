@@ -15,10 +15,10 @@ import {
   delay,
   deleteFromCache,
 } from './utils/camera';
-import MainView from "./components/MainView";
+import MainView from './components/MainView';
 import LoadingView from './components/LoadingView';
-import LogView from "./components/LogView";
-import TaskManager from "./utils/TaskManager";
+import LogView from './components/LogView';
+import TaskManager from './utils/TaskManager';
 import Logger from './utils/Logger';
 import KeepAwake from 'react-native-keep-awake';
 
@@ -57,7 +57,7 @@ export default class App extends Component {
       return;
     }
 
-    this.setState({ mode: 'LOADING' });
+    this.setState({mode: 'LOADING'});
 
     getLastVideoURL()
       .then((video) => {
@@ -101,17 +101,20 @@ export default class App extends Component {
     // console.warn(this.state.mode);
     switch (this.state.mode) {
       case 'LOADING':
-        return <LoadingView/>;
+        return <LoadingView />;
       case 'NOT_STARTED':
       case 'READY':
-        return <MainView
-          isRecording={this.state.mode === 'READY'}
-          onGoal={() => this.onGoal()}
-          onRecord={() => this.startRecording()}
-          onStop={() => this.stopRecording()}
-          goToLogs={() => this.setState({ mode: 'LOG'})}/>;
+        return (
+          <MainView
+            isRecording={this.state.mode === 'READY'}
+            onGoal={() => this.onGoal()}
+            onRecord={() => this.startRecording()}
+            onStop={() => this.stopRecording()}
+            goToLogs={() => this.setState({mode: 'LOG'})}
+          />
+        );
       case 'LOG':
-        return <LogView goBack={() => this.setState({ mode: 'READY'})}/>;
+        return <LogView goBack={() => this.setState({mode: 'READY'})} />;
       default:
         throw new Error('invalid view');
     }
