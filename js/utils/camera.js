@@ -3,8 +3,7 @@ import _ from 'lodash';
 import {CAMARA_IP, CAMARA_PORT, CAMARA_PASSWORD} from '../constants';
 import {ProcessingManager} from 'react-native-video-processing';
 import Logger from './Logger';
-import {CameraRoll} from 'react-native';
-// import RNFS from 'react-native-fs';
+import RNFS from 'react-native-fs';
 
 export const delay = millis => {
   return (...args) =>
@@ -32,8 +31,7 @@ export const deleteAllFromCamara = () => {
 
 export const deleteFromCache = filepath => {
   Logger.addLog(`deleteFromCache ${filepath}`);
-  return Promise.resolve(null);
-  // return RNFS.unlink(filepath);
+  return RNFS.unlink(filepath);
 };
 
 export const deleteVideo = (video) => {
@@ -68,10 +66,5 @@ export const getVideoDuration = (videoURL) => {
 // returns the path of the result file
 export const trimVideo = (videoURL, startTime, endTime) => {
   Logger.addLog(`trimming ${videoURL}, from ${startTime}s to ${endTime}s`);
-  return ProcessingManager.trim(videoURL, { startTime, endTime });
-};
-
-export const saveToCameraRoll = (url) => {
-  Logger.addLog(`save to camera roll ${url}`);
-  return CameraRoll.saveToCameraRoll(url);
+  return ProcessingManager.trim(videoURL, { startTime, endTime, saveToCameraRoll: true });
 };

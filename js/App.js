@@ -13,7 +13,6 @@ import {
   trimVideo,
   deleteVideo,
   delay,
-  saveToCameraRoll,
   deleteFromCache,
 } from './utils/camera';
 import MainView from "./components/MainView";
@@ -77,10 +76,7 @@ export default class App extends Component {
 
                   return trimVideo(video, start, twoDecimalsTrunc(duration));
                 })
-                .then(url => {
-                  return saveToCameraRoll(url)
-                    .then(() => deleteFromCache(url))
-                })
+                .then((url) => deleteFromCache(url))
                 .then(delay(5000))
                 .then(() => deleteVideo(video))
                 .then(delay(5000))
