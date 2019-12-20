@@ -15,6 +15,7 @@
     "react": "16.9.0",
     "react-native": "0.61.5",
     "react-native-fs": "^2.16.2",
+    "react-native-keep-awake": "^4.0.0",
     "react-native-video-processing": "santiagovazquez/react-native-video-processing"
   },
   "devDependencies": {

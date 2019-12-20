@@ -20,7 +20,7 @@ import LoadingView from './components/LoadingView';
 import LogView from "./components/LogView";
 import TaskManager from "./utils/TaskManager";
 import Logger from './utils/Logger';
-// import {activateKeepAwake, deactivateKeepAwake} from 'expo-keep-awake';
+import KeepAwake from 'react-native-keep-awake';
 
 export default class App extends Component {
 
@@ -45,11 +45,11 @@ export default class App extends Component {
   }
 
   componentWillMount() {
-    // activateKeepAwake();
+    KeepAwake.activate();
   }
 
   componentWillUnmount() {
-    // deactivateKeepAwake();
+    KeepAwake.deactivate();
   }
 
   onGoal() {
@@ -137,44 +137,6 @@ const styles = StyleSheet.create({
   innerView: {
     flexDirection: 'row',
     marginHorizontal: 10,
-    flex: 1
+    flex: 1,
   },
-  // playBtn: {
-  //   marginTop: 30,
-  //   height: 60
-  // },
-  // goalBtnContainer: {
-  //   flexDirection: 'column',
-  //   flex: 1
-  // },
-  // goalBtn: {
-  //   flex: 1
-  // },
-  // goalBtnText: {
-  //   fontSize: 120,
-  //   fontWeight: 'bold'
-  // },
-  // btnText: {
-  //   color: 'white'
-  // },
-  // btnContainer: {
-  //   flex: 1
-  // },
-  // btn: {
-  //   borderColor: 'rgba(153, 9, 22, 1.00)',
-  //   backgroundColor: 'rgba(249, 46, 71, 1.00)',
-  //   borderWidth: 2
-  // },
-  // btnDisabled: {
-  //   borderColor: 'rgba(153, 9, 22, 0.5)',
-  //   backgroundColor: 'rgba(249, 46, 71, 0.5)'
-  // },
-  // disabledText: {
-  //   color: 'rgba(255, 255, 255, 0.5)'
-  // },
-  //
-  // errorText: {
-  //   color: 'white',
-  //   fontSize: 10
-  // }
 });

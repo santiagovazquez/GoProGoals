@@ -37,6 +37,8 @@ target 'GoProGoals' do
 
   pod 'RNFS', :path => '../node_modules/react-native-fs'
 
+  pod 'react-native-keep-awake', :path => '../node_modules/react-native-keep-awake'
+
   target 'GoProGoalsTests' do
     inherit! :search_paths
     # Pods for testing
