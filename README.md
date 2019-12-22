@@ -1,6 +1,6 @@
 # GoProGoals
 
-An app to record your goals! [Video Samples](https://www.youtube.com/playlist?list=PLE8Be1z3NnYjlIO-RfyEWX96b0Cmx0zLE)
+A React Native App to record your goals! [Video Samples](https://www.youtube.com/playlist?list=PLE8Be1z3NnYjlIO-RfyEWX96b0Cmx0zLE)
 
 It is required:
 
